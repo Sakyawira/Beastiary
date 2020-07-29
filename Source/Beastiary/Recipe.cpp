@@ -16,7 +16,7 @@ bool ARecipeHandler::containsAll(TArray<Ingredient> _neededIngredients, TArray<I
 	int len = _neededIngredients.Num();
 	for (int i = 0; i < len; i++) 
 	{
-		if (_availableIngredients.Find(_neededIngredients[i]) == false)
+		if (_availableIngredients.Find(_neededIngredients[i]) == INDEX_NONE)
 		{
 			return false;
 		}
