@@ -18,9 +18,10 @@ USTRUCT(BlueprintType)
 struct FRecipe
 {
 	GENERATED_BODY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FString FoodName;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<Ingredient> Ingredients;
-
 };
 
 UCLASS(Blueprintable)
@@ -37,7 +38,7 @@ public:
 	bool containsAll(TArray<Ingredient> _neededIngredients, TArray<Ingredient> _availableIngredients);
 
 	// Check if any of the recipe in the array of recipes can be made
-	//UFUNCTION(BlueprintCallable)
+	UFUNCTION(BlueprintCallable)
 	FString haveRecipe(TArray<FRecipe> _recipes, TArray<Ingredient> _availableIngredients);
 
 protected:
