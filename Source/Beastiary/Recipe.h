@@ -7,27 +7,38 @@
 #include "Recipe.generated.h"
 
 UENUM(BlueprintType)
-enum class Ingredient2 : uint8 {
+enum class Ingredient : uint8 {
 	Apple = 0 UMETA(DisplayName = "Apple"),
 	Banana = 1  UMETA(DisplayName = "Banana"),
 	Cherry = 2     UMETA(DisplayName = "Cherry"),
 	Dicks = 3  UMETA(DisplayName = "Dicks")
 };
 
-UCLASS()
-class BEASTIARY_API ARecipe : public AActor
+USTRUCT(BlueprintType)
+struct FRecipe
+{
+	GENERATED_BODY()
+	FString FoodName;
+	TArray<Ingredient> Ingredients;
+
+};
+
+UCLASS(Blueprintable)
+class BEASTIARY_API ARecipeHandler : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	ARecipe();
+	ARecipeHandler();
 
 	// Check whether the needed ingredients for a recipe are available
-	bool containsAll(TArray<Ingredient2> _neededIngredients, TArray<Ingredient2> _availableIngredients);
+	UFUNCTION(BlueprintCallable)
+	bool containsAll(TArray<Ingredient> _neededIngredients, TArray<Ingredient> _availableIngredients);
 
 	// Check if any of the recipe in the array of recipes can be made
-	FString haveRecipe(TMap<FString, TArray<Ingredient2>> _recipes, TArray<Ingredient2> _availableIngredients);
+	//UFUNCTION(BlueprintCallable)
+	FString haveRecipe(TArray<FRecipe> _recipes, TArray<Ingredient> _availableIngredients);
 
 protected:
 	// Called when the game starts or when spawned
@@ -37,6 +48,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	TMap<FString, TArray<Ingredient2>> Recipes;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<FRecipe> Recipes;
 
 };
