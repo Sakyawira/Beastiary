@@ -24,6 +24,17 @@ bool ARecipe::containsAll(TArray<Ingredient2> _neededIngredients, TArray<Ingredi
 	return true;
 }
 
+FString ARecipe::haveRecipe(TMap<FString, TArray<Ingredient2>> _recipes, TArray<Ingredient2> _availableIngredients)
+{
+	for (auto& recipe : _recipes)
+	{
+		if (containsAll(recipe.Value, _availableIngredients))
+		{
+			return recipe.Key;
+		}
+	}
+}
+
 // Called when the game starts or when spawned
 void ARecipe::BeginPlay()
 {

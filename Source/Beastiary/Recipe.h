@@ -23,7 +23,11 @@ public:
 	// Sets default values for this actor's properties
 	ARecipe();
 
+	// Check whether the needed ingredients for a recipe are available
 	bool containsAll(TArray<Ingredient2> _neededIngredients, TArray<Ingredient2> _availableIngredients);
+
+	// Check if any of the recipe in the array of recipes can be made
+	FString haveRecipe(TMap<FString, TArray<Ingredient2>> _recipes, TArray<Ingredient2> _availableIngredients);
 
 protected:
 	// Called when the game starts or when spawned
