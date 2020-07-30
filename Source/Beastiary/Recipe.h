@@ -24,6 +24,8 @@ struct FRecipe
 	TArray<Ingredient> Ingredients;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UStaticMesh* PotionMesh = nullptr;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool IsDiscovered = false;
 };
 
 UCLASS(Blueprintable)
