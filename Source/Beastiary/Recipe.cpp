@@ -29,16 +29,16 @@ bool ARecipeHandler::containsAll(TArray<Ingredient> _neededIngredients, TArray<I
 	return true;
 }
 
-FString ARecipeHandler::haveRecipe(TArray<FRecipe> _recipes, TArray<Ingredient> _availableIngredients)
+FRecipe ARecipeHandler::haveRecipe(TArray<FRecipe> _recipes, TArray<Ingredient> _availableIngredients)
 {
 	for (auto& recipe : _recipes)
 	{
 		if (containsAll(recipe.Ingredients, _availableIngredients))
 		{
-			return recipe.FoodName;
+			return recipe;
 		}
 	}
-	return FString("NoRecipe");
+	return FRecipe();
 }
 
 // Called when the game starts or when spawned

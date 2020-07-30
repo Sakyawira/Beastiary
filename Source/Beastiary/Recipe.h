@@ -19,9 +19,11 @@ struct FRecipe
 {
 	GENERATED_BODY()
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString FoodName;
+	FString FoodName = "NoFood";
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<Ingredient> Ingredients;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UStaticMesh* PotionMesh = nullptr;
 };
 
 UCLASS(Blueprintable)
@@ -39,7 +41,7 @@ public:
 
 	// Check if any of the recipe in the array of recipes can be made
 	UFUNCTION(BlueprintCallable)
-	FString haveRecipe(TArray<FRecipe> _recipes, TArray<Ingredient> _availableIngredients);
+	FRecipe haveRecipe(TArray<FRecipe> _recipes, TArray<Ingredient> _availableIngredients);
 
 protected:
 	// Called when the game starts or when spawned
