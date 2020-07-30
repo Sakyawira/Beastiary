@@ -24,6 +24,8 @@ struct FRecipe
 	TArray<Ingredient> Ingredients;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UStaticMesh* PotionMesh = nullptr;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool IsDiscovered = false;
 };
 
 UCLASS(Blueprintable)
@@ -41,7 +43,7 @@ public:
 
 	// Check if any of the recipe in the array of recipes can be made
 	UFUNCTION(BlueprintCallable)
-	FRecipe haveRecipe(TArray<FRecipe> _recipes, TArray<Ingredient> _availableIngredients);
+	FRecipe haveRecipe(UPARAM(ref) TArray<FRecipe>& _recipes, TArray<Ingredient> _availableIngredients);
 
 protected:
 	// Called when the game starts or when spawned
