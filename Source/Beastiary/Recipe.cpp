@@ -19,9 +19,13 @@ bool ARecipeHandler::containsAll(TArray<Ingredient> _neededIngredients, TArray<I
 		return false;
 	}
 
+	_availableIngredients.Sort([](const Ingredient& LHS, const Ingredient& RHS) { return LHS > RHS; });
+	_neededIngredients.Sort([](const Ingredient& LHS, const Ingredient& RHS) { return LHS > RHS; });
+
 	for (int i = 0; i < len; i++) 
 	{
-		if (_availableIngredients.Find(_neededIngredients[i]) == INDEX_NONE )
+		/*if (_availableIngredients.Find(_neededIngredients[i]) == INDEX_NONE )*/
+		if (_availableIngredients[i] != _neededIngredients[i])
 		{
 			return false;
 		}
@@ -29,12 +33,13 @@ bool ARecipeHandler::containsAll(TArray<Ingredient> _neededIngredients, TArray<I
 	return true;
 }
 
-FRecipe ARecipeHandler::haveRecipe(TArray<FRecipe> _recipes, TArray<Ingredient> _availableIngredients)
+FRecipe ARecipeHandler::haveRecipe(UPARAM(ref) TArray<FRecipe>& _recipes, TArray<Ingredient> _availableIngredients)
 {
 	for (auto& recipe : _recipes)
 	{
 		if (containsAll(recipe.Ingredients, _availableIngredients))
 		{
+			recipe.IsDiscovered = true;
 			return recipe;
 		}
 	}
