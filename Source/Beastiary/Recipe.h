@@ -8,16 +8,17 @@
 
 UENUM(BlueprintType)
 enum class Ingredient : uint8 {
-	Batwing = 0    UMETA(DisplayName = "Batwing"),
-	Claw = 1       UMETA(DisplayName = "Claw"),
-	Eyeball = 2    UMETA(DisplayName = "Eyeball"),
-	Garlic = 3     UMETA(DisplayName = "Garlic"),
-	Horn = 4       UMETA(DisplayName = "Horn"),
-	Leafyherb = 5  UMETA(DisplayName = "Leafyherb"),
-	Mushroom = 6   UMETA(DisplayName = "Mushroom"),
-	Scale = 7      UMETA(DisplayName = "Scale"),
-	Tail = 8       UMETA(DisplayName = "Tail"), 
-	Tentacle = 9   UMETA(DisplayName = "Tentacle")
+	None = 0    UMETA(DisplayName = "None"),
+	Batwing = 1    UMETA(DisplayName = "Batwing"),
+	Claw = 2       UMETA(DisplayName = "Claw"),
+	Eyeball = 3    UMETA(DisplayName = "Eyeball"),
+	Garlic = 4     UMETA(DisplayName = "Garlic"),
+	Horn = 5       UMETA(DisplayName = "Horn"),
+	Leafyherb = 6  UMETA(DisplayName = "Leafyherb"),
+	Mushroom = 7   UMETA(DisplayName = "Mushroom"),
+	Scale = 8      UMETA(DisplayName = "Scale"),
+	Tail = 9       UMETA(DisplayName = "Tail"), 
+	Tentacle = 10   UMETA(DisplayName = "Tentacle")
 };
 
 USTRUCT(BlueprintType)
