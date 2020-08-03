@@ -35,6 +35,8 @@ struct FRecipe
 	bool IsDiscovered = false;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USkeletalMesh* FamiliarMesh = nullptr;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UTexture2D* FoodImage = nullptr;
 };
 
 UCLASS(Blueprintable)
