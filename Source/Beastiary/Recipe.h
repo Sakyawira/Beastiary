@@ -33,6 +33,8 @@ struct FRecipe
 	UStaticMesh* PotionMesh = nullptr;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool IsDiscovered = false;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USkeletalMesh* FamiliarMesh = nullptr;
 };
 
 UCLASS(Blueprintable)
