@@ -33,6 +33,10 @@ struct FRecipe
 	UStaticMesh* PotionMesh = nullptr;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool IsDiscovered = false;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USkeletalMesh* FamiliarMesh = nullptr;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UTexture2D* FoodImage = nullptr;
 };
 
 UCLASS(Blueprintable)
