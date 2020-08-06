@@ -59,7 +59,7 @@ ABeastiaryCharacter::ABeastiaryCharacter()
 
 void ABeastiaryCharacter::Tick(float DeltaSeconds)
 {
- //   Super::Tick(DeltaSeconds);
+	Super::Tick(DeltaSeconds);
 
 	//if (CursorToWorld != nullptr)
 	//{
